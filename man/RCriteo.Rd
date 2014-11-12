@@ -1,6 +1,6 @@
 \name{RCriteo}
 \alias{RCriteo}
-\title{RCriteo: Loading Criteo data into R}
+\title{Loading Criteo Data Into R}
 \description{
   The aim of RCriteo is loading Criteo Campaign data into R.
   The package provides an authentication process \code{\link{doCriteoAuth}} for R with the Criteo API.

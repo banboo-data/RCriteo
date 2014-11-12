@@ -1,4 +1,4 @@
-## RCriteo: Loading Criteo data into R ##
+## Loading Criteo Data Into R ##
 
 The aim of **RCriteo** is loading Criteo Campaign data into R.
 The package provides an **authentication process** for R with the **Criteo API**.
