@@ -35,6 +35,14 @@ The API returns a job ID, which will later be used to receive the data.
 
 `getCriteoData` loads the data into as R data frame.
 
+#### Get Account Information ####
+
+`getCriteoAccount` returns the account information.
+
+#### Get Campaign Information ####
+
+`getCriteoCampaigns` returns list of Campaigns and additional information.
+
 ### Example ###
 
 #### Authentication ####
