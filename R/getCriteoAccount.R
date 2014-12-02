@@ -37,8 +37,13 @@ getCriteoAccount <- function(authToken, appToken){
                       writefunction = h$update
                       )
           
-          data <- XML::xmlParse(h$value())
-          data <- XML::xmlToList(data)
-          
+          xy <- sub('xmlns="https://advertising.criteo.com/API/v201010"','',h$value())
+          doc <- XML::xmlRoot(XML::xmlTreeParse(xy, useInternalNodes = TRUE))
+          #xmlValue <- NULL
+          data <- data.frame(Name=XML::xpathSApply(doc, "//advertiserName", XML::xmlValue),
+                             Email=XML::xpathSApply(doc, "//email", XML::xmlValue),
+                             Currency=XML::xpathSApply(doc, "//currency", XML::xmlValue),
+                             TimeZone=XML::xpathSApply(doc, "//timezone", XML::xmlValue),
+                             Country=XML::xpathSApply(doc, "//country", XML::xmlValue))
           data
 }

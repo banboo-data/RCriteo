@@ -2,6 +2,7 @@
 
 export(doCriteoAuth)
 export(getCriteoAccount)
+export(getCriteoCampaigns)
 export(getCriteoData)
 export(getCriteoDownloadURL)
 export(getCriteoJobStatus)

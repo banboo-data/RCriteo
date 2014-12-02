@@ -23,6 +23,6 @@ available metrics: clicks, impressions, ctr, revcpc, ecpm, cost, sales, convRate
 Report job ID
 }
 \description{
-This function generates the campaign report statement and schedules the report. The API returns a job ID, which will later be used to receive the data.
+This function generates the campaign report statement and schedules the report. The API returns a job ID, which later will be used to receive the data from the API.
 }
 

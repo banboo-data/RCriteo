@@ -14,6 +14,6 @@ getCriteoData(URL, jobID)
 Data
 }
 \description{
-This function returns the requested data as a data.frame
+This function returns the requested data as a data frame.
 }
 

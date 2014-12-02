@@ -47,9 +47,15 @@ getCriteoCampaigns <- function(authToken, appToken){
                      postfields = body,
                      writefunction = h$update
   )
-  
-  data <- XML::xmlParse(h$value())
-  data <- XML::xmlToList(data)
-  ##TODO: List to dataframe
+
+  xml <- sub('xmlns="https://advertising.criteo.com/API/v201010"','',h$value())
+  doc <- XML::xmlRoot(XML::xmlTreeParse(xml, useInternalNodes = TRUE))
+  data <- data.frame(#campaignCategoryUID=xpathSApply(doc, "//campaignCategoryUID", xmlValue),
+                    campaignID=XML::xpathSApply(doc, "//campaign/campaignID", XML::xmlValue),
+                    campaignName=XML::xpathSApply(doc, "//campaignName", XML::xmlValue),
+                    #categoryID=xpathSApply(doc, "//categoryID", xmlValue),
+                    #selected=xpathSApply(doc, "//selected", xmlValue),
+                    biddingStrategy=XML::xpathSApply(doc, "//campaignBid/biddingStrategy", XML::xmlValue),
+                    status=XML::xpathSApply(doc, "//campaign/status", XML::xmlValue))
   data
 }

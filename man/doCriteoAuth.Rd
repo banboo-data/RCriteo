@@ -20,6 +20,6 @@ doCriteoAuth(user, password, company, app, version)
 AuthToken
 }
 \description{
-Initiate the Criteo API authetication process. The function returns the authentication token.
+Initiate the Criteo API authentication process. The function returns the authentication token.
 }
 
