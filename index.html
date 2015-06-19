@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>RCriteo by jburkhardt</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>RCriteo</h1>
+        <h2>Loading Criteo Campaign Data into R</h2>
+        <a href="https://github.com/jburkhardt/RCriteo" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="loading-criteo-data-into-r" class="anchor" href="#loading-criteo-data-into-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading Criteo Data Into R</h2>
+
+<p>The aim of <strong>RCriteo</strong> is loading Criteo Campaign data into R.
+The package provides an <strong>authentication process</strong> for R with the <strong>Criteo API</strong>.
+Moreover, the package features an interface to <strong>query campaign data</strong> from the Criteo API.
+The <strong>data</strong> can be <strong>downloaded</strong> and will be transformed into a R data frame.</p>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>The package can be installed directly from this Github repository with:</p>
+
+<p><code>require(devtools)</code><br>
+<code>install_github('jburkhardt/RCriteo')</code></p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<h4>
+<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication:</h4>
+
+<p>The function <code>doCriteoAuth</code> manages the complete authentication process and returns an authentication token.</p>
+
+<h4>
+<a id="create-statement" class="anchor" href="#create-statement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Statement:</h4>
+
+<p><code>scedCriteoReport</code> generates the campaign report statement and schedules the report.
+The API returns a job ID, which will later be used to receive the data.</p>
+
+<h4>
+<a id="criteo-job-status" class="anchor" href="#criteo-job-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Criteo Job Status:</h4>
+
+<p><code>getCriteoJobStatus</code> monitors if the API processed the report.</p>
+
+<h4>
+<a id="download-url" class="anchor" href="#download-url" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download URL:</h4>
+
+<p><code>getCriteoDownloadURL</code> returns the download Url of the report.</p>
+
+<h4>
+<a id="loading-data" class="anchor" href="#loading-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading Data:</h4>
+
+<p><code>getCriteoData</code> loads the data into as R data frame.</p>
+
+<h4>
+<a id="get-account-information" class="anchor" href="#get-account-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Account Information</h4>
+
+<p><code>getCriteoAccount</code> returns the account information.</p>
+
+<h4>
+<a id="get-campaign-information" class="anchor" href="#get-campaign-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Campaign Information</h4>
+
+<p><code>getCriteoCampaigns</code> returns list of Campaigns and additional information.</p>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<h4>
+<a id="authentication-1" class="anchor" href="#authentication-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h4>
+
+<p><code>library(RCriteo)</code><br>
+<code>authToken &lt;- doCriteoAuth(user = "userName",
+                            password = "**********",
+                            company = "companyName",
+                            app = "appName",
+                            version = "3.6")</code></p>
+
+<h4>
+<a id="create-statement-1" class="anchor" href="#create-statement-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Statement</h4>
+
+<p><code>jobID &lt;- scedCriteoReport(authToken = authToken,
+                      appToken = '*************',
+                      campaigns = c("12345", "23345", "98765", "45639"),
+                      metrics = c("clicks", "impressions", "cost", "sales"),
+                      start = "2014-01-01",
+                      end = "2014-01-31")</code></p>
+
+<h4>
+<a id="get-job-status" class="anchor" href="#get-job-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Job Status</h4>
+
+<p><code>jobStatus &lt;- getCriteoJobStatus(authToken = authToken,
+                            appToken = '************',
+                            jobID = jobID)</code></p>
+
+<h4>
+<a id="get-download-url" class="anchor" href="#get-download-url" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Download URL</h4>
+
+<p><code>URL &lt;- getCriteoDownloadURL(authToken = authToken,
+                              appToken = '************',
+                              jobID = jobID)</code></p>
+
+<h4>
+<a id="load-data" class="anchor" href="#load-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load Data</h4>
+
+<p><code>data &lt;- getCriteoData(URL = URL,
+                        jobID = jobID)</code></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/jburkhardt/RCriteo/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/jburkhardt/RCriteo/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/jburkhardt/RCriteo"></a> is maintained by <a href="https://github.com/jburkhardt">jburkhardt</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
