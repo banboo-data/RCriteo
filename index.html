@@ -19,6 +19,7 @@
         <p>Loading Criteo Campaign Data into R</p>
 
         <p class="view"><a href="https://github.com/jburkhardt/RCriteo">View the Project on GitHub <small>jburkhardt/RCriteo</small></a></p>
+        <p>Author: <a href="https://github.com/jburkhardt">Johannes Burkhardt</a></p>
 
 
         <ul>
@@ -31,7 +32,7 @@
         <h2>
 <a id="loading-criteo-data-into-r" class="anchor" href="#loading-criteo-data-into-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading Criteo Data Into R</h2>
 
-<p>The aim of <strong>RCriteo</strong> is loading Criteo Campaign data into R.
+<p>The aim of <strong>RCriteo</strong> is loading <strong>Criteo</strong> online advertising campaign data into <strong>R</strong>.
 The package provides an <strong>authentication process</strong> for R with the <strong>Criteo API</strong>.
 Moreover, the package features an interface to <strong>query campaign data</strong> from the Criteo API.
 The <strong>data</strong> can be <strong>downloaded</strong> and will be transformed into a R data frame.</p>
@@ -57,6 +58,11 @@ The <strong>data</strong> can be <strong>downloaded</strong> and will be transfo
 
 <p><code>scedCriteoReport</code> generates the campaign report statement and schedules the report.
 The API returns a job ID, which will later be used to receive the data.</p>
+
+<h4>
+<a id="download-data" class="anchor" href="#download-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download Data:</h4>
+
+<p><code>criteoData</code> manages the complete data download process. The function returns the requested data as data frame.</p>
 
 <h4>
 <a id="criteo-job-status" class="anchor" href="#criteo-job-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Criteo Job Status:</h4>
@@ -105,6 +111,11 @@ The API returns a job ID, which will later be used to receive the data.</p>
                       metrics = c("clicks", "impressions", "cost", "sales"),
                       start = "2014-01-01",
                       end = "2014-01-31")</code></p>
+
+<h4>
+<a id="download-data-1" class="anchor" href="#download-data-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download Data</h4>
+
+<p><code>data &lt;- criteoData(authToken = authToken, appToken = '*************', jobID = jobID)</code></p>
 
 <h4>
 <a id="get-job-status" class="anchor" href="#get-job-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Job Status</h4>
