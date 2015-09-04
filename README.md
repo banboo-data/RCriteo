@@ -1,6 +1,6 @@
 ## Loading Criteo Data Into R ##
 
-The aim of **RCriteo** is loading Criteo Campaign data into R.
+The aim of **RCriteo** is loading Criteo online advertising campaign data into R.
 The package provides an **authentication process** for R with the **Criteo API**.
 Moreover, the package features an interface to **query campaign data** from the Criteo API.
 The **data** can be **downloaded** and will be transformed into a R data frame.

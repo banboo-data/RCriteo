@@ -5,7 +5,7 @@ Version: 1.0.1
 Date: 2014-11-06
 Author: Johannes Burkhardt <johannes.burkhardt@gmail.com>
 Maintainer: Johannes Burkhardt <johannes.burkhardt@gmail.com>
-Description: The aim of RCriteo is loading Criteo Campaign data into R. The
+Description: The aim of RCriteo is loading Criteo online advertising campaign data into R. The
     package provides an authentication process for R with the Criteo API.
     Moreover, the package features an interface to query campaign data from the
     Criteo API. The data can be downloaded and will be transformed into a R
