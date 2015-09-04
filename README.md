@@ -23,6 +23,10 @@ The function `doCriteoAuth` manages the complete authentication process and retu
 `scedCriteoReport` generates the campaign report statement and schedules the report.
 The API returns a job ID, which will later be used to receive the data.
 
+#### Download Data: ####
+
+`criteoData` manages the complete data download process. The function returns the requested data as data frame.
+
 #### Criteo Job Status: ####
 
 `getCriteoJobStatus` monitors if the API processed the report.
@@ -60,6 +64,10 @@ The API returns a job ID, which will later be used to receive the data.
                       metrics = c("clicks", "impressions", "cost", "sales"),
                       start = "2014-01-01",
                       end = "2014-01-31")`
+#### Download Data ####
+`data <- criteoData(authToken = authToken,
+                    appToken = '*************',
+                    jobID = jobID)`
 #### Get Job Status ####
 `jobStatus <- getCriteoJobStatus(authToken = authToken,
                             appToken = '************',

@@ -1,7 +1,7 @@
 Package: RCriteo
 Type: Package
 Title: Loading Criteo Data Into R
-Version: 1.0
+Version: 1.0.1
 Date: 2014-11-06
 Author: Johannes Burkhardt <johannes.burkhardt@gmail.com>
 Maintainer: Johannes Burkhardt <johannes.burkhardt@gmail.com>
