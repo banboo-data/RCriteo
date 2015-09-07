@@ -61,8 +61,8 @@ The API returns a job ID, which will later be used to receive the data.
                             app = "appName",
                             version = "3.6")`
 #### Retrieve Campaign IDs ####
-getCriteoCampaigns(authToken = authToken,
-                      appToken = '*************')
+`getCriteoCampaigns(authToken = authToken,
+                      appToken = '*************')`
 #### Create Statement ####
 `jobID <- scedCriteoReport(authToken = authToken,
                       appToken = '*************',
