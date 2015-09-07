@@ -1,7 +1,7 @@
-## Loading Criteo Data Into R ##
+## Loading Criteo Data into R ##
 
-The aim of **RCriteo** is loading Criteo online advertising campaign data into R.
-The package provides an **authentication process** for R with the **Criteo API**.
+The aim of **RCriteo** is loading [Criteo online advertising campaign data](http://www.criteo.com/) into R.
+The package provides an **authentication process** for R with the [Criteo API](http://kb.criteo.com/advertising/content/5/27/en/api.html).
 Moreover, the package features an interface to **query campaign data** from the Criteo API.
 The **data** can be **downloaded** and will be transformed into a R data frame.
 
@@ -26,6 +26,10 @@ The API returns a job ID, which will later be used to receive the data.
 #### Download Data: ####
 
 `criteoData` manages the complete data download process. The function returns the requested data as data frame.
+
+#### Retrieve Campaign IDs: ####
+
+`getCriteoCampaigns` loads campaign information.
 
 #### Criteo Job Status: ####
 
@@ -56,14 +60,16 @@ The API returns a job ID, which will later be used to receive the data.
                             company = "companyName",
                             app = "appName",
                             version = "3.6")`
-
+#### Retrieve Campaign IDs ####
+getCriteoCampaigns(authToken = authToken,
+                      appToken = '*************')
 #### Create Statement ####
 `jobID <- scedCriteoReport(authToken = authToken,
                       appToken = '*************',
                       campaigns = c("12345", "23345", "98765", "45639"),
                       metrics = c("clicks", "impressions", "cost", "sales"),
-                      start = "2014-01-01",
-                      end = "2014-01-31")`
+                      start = "2015-09-01",
+                      end = "2015-09-06")`
 #### Download Data ####
 `data <- criteoData(authToken = authToken,
                     appToken = '*************',
@@ -72,12 +78,10 @@ The API returns a job ID, which will later be used to receive the data.
 `jobStatus <- getCriteoJobStatus(authToken = authToken,
                             appToken = '************',
                             jobID = jobID)`
-                            
 #### Get Download URL ####
 `URL <- getCriteoDownloadURL(authToken = authToken,
                               appToken = '************',
                               jobID = jobID)`
-                              
 #### Load Data ####
 `data <- getCriteoData(URL = URL,
                         jobID = jobID)`
