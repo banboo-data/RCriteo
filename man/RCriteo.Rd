@@ -12,25 +12,25 @@
 \examples{
 \dontrun{
 Authentication:
-`authToken <- doCriteoAuth(user = "userName",
+authToken <- doCriteoAuth(user = "userName",
                             password = "**********",
                             company = "companyName",
                             app = "appName",
-                            version = "3.6")`
+                            version = "3.6")
 Retrieve Campaign IDs:
 getCriteoCampaigns(authToken = authToken,
                       appToken = '*************')
 Create Statement:
-`jobID <- scedCriteoReport(authToken = authToken,
+jobID <- scedCriteoReport(authToken = authToken,
                       appToken = '*************',
                       campaigns = c("12345", "23345", "98765", "45639"),
                       metrics = c("clicks", "impressions", "cost", "sales"),
                       start = "2015-09-01",
-                      end = "2015-09-06")`
+                      end = "2015-09-06")
 Download Data:
-`data <- criteoData(authToken = authToken,
+data <- criteoData(authToken = authToken,
                     appToken = '*************',
-                    jobID = jobID)`
+                    jobID = jobID)
 }
 }
 
