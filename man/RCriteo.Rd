@@ -2,8 +2,8 @@
 \alias{RCriteo}
 \title{Loading Criteo Data into R}
 \description{
-  Aims at loading \href{Criteo online display advertising campaign data}{http://www.criteo.com/} into R. Criteo is an online advertising service that enables advertisers to display advertising copy to web users.
-  The package provides an authentication process \code{\link{doCriteoAuth}} for R with the \href{Criteo API}{http://kb.criteo.com/advertising/content/5/27/en/api.html}.
+  Aims at loading \href{http://www.criteo.com/}{Criteo online display advertising campaign data} into R. Criteo is an online advertising service that enables advertisers to display advertising copy to web users.
+  The package provides an authentication process \code{\link{doCriteoAuth}} for R with the \href{http://kb.criteo.com/advertising/content/5/27/en/api.html}{Criteo API}.
   Moreover, the package features an interface to query campaign data from the Criteo API with \code{\link{scedCriteoReport}}.
   The data can be downloaded with \code{\link{criteoData}}.
   \code{\link{getCriteoDownloadURL}} generates a download link and \code{\link{getCriteoData}} will download the data and transform it into a R data frame.  
