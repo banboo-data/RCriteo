@@ -1,6 +1,6 @@
 ## Loading Criteo Data into R ##
 
-Aims at loading [Criteo online advertising campaign data](http://www.criteo.com/) into R. Criteo is an online advertising service that enables advertisers to display advertising copy to web users.
+Aims at loading [Criteo online advertising campaign data](http://www.criteo.com/) into R. Criteo is an online advertising service that enables advertisers to display commercial ads to web users.
 The package provides an **authentication process** for R with the [Criteo API](http://kb.criteo.com/advertising/content/5/27/en/api.html).
 Moreover, the package features an interface to **query campaign data** from the Criteo API.
 The **data** can be **downloaded** and will be transformed into a R data frame.

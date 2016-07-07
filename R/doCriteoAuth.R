@@ -1,16 +1,16 @@
 #' @title API Authentication
-#' 
-#'  @description Initiate the Criteo API authentication process. The function returns the authentication token.
+#'
+#' @description Initiate the Criteo API authentication process. The function returns the authentication token.
 #'  
-#'   @param user Username
-#'   @param password Password
-#'   @param company Company Name
-#'   @param app App Name of API project
-#'   @param version API version
+#' @param user Username
+#' @param password Password
+#' @param company Company Name
+#' @param app App Name of API project
+#' @param version API version
 #'   
-#'   @export
+#' @export
 #'   
-#'   @return AuthToken
+#' @return AuthToken
 doCriteoAuth <- function(user, password, company, app, version){
   headerFields =
     c(Accept = "text/xml",

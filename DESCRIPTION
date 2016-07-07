@@ -1,16 +1,17 @@
 Package: RCriteo
 Type: Package
 Title: Loading Criteo Data into R
-Version: 1.0.1
+Version: 1.0.2
 Date: 2015-09-07
 Author: Johannes Burkhardt <johannes.burkhardt@gmail.com>
 Maintainer: Johannes Burkhardt <johannes.burkhardt@gmail.com>
-Description: Aims at loading Criteo online advertising campaign data into R. Criteo <http://www.criteo.com/> is an online
-    advertising service that enables advertisers to display advertising copy to web users. The
-    package provides an authentication process for R with the Criteo API <http://kb.criteo.com/advertising/content/5/27/en/api.html>.
-    Moreover, the package features an interface to query campaign data from the
-    Criteo API. The data can be downloaded and will be transformed into a R
-    data frame.
+Description: Aims at loading Criteo online advertising campaign data into R.
+    Criteo <http://www.criteo.com/> is an online advertising service that enables
+    advertisers to display commercial ads to web users. The package provides
+    an authentication process for R with the Criteo API <http://kb.criteo.com/
+    advertising/content/5/27/en/api.html>. Moreover, the package features an
+    interface to query campaign data from the Criteo API. The data can be downloaded
+    and will be transformed into a R data frame.
 Depends:
     R (>= 3.1.1)
 Imports:
@@ -20,5 +21,7 @@ Imports:
     plyr
 License: GPL (>= 2) | MIT + file LICENSE
 Encoding: UTF-8
-URL: http://jburkhardt.github.io/RCriteo/, http://www.criteo.com/, http://kb.criteo.com/advertising/content/5/27/en/api.html
+URL: http://jburkhardt.github.io/RCriteo/, http://www.criteo.com/, http://
+    kb.criteo.com/advertising/content/5/27/en/api.html
 BugReports: https://github.com/jburkhardt/RCriteo/issues
+RoxygenNote: 5.0.1

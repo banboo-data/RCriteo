@@ -10,25 +10,55 @@
 #' @export
 getCriteoData <- function(URL, jobID){
   #get http content from download url
-  data <- httr::content(httr::GET(URL))
+  data <- httr::content(httr::GET(URL),encoding="utf-8")
   #parse xml
-  xmlTop <- XML::xmlRoot(data)
-  xmlData <- xmlTop[["table"]][["rows"]]
-  #convert xml to list and dataframe
-  myList <- XML::xmlToList(xmlData)
-  df <- data.frame(matrix(unlist(myList), nrow=length(myList), byrow=T))
-  #eliminate timestamp
-  df[,2] <- NULL
-  #rename columns
-  CampaignID <- NULL
-  Date <- NULL
-  names(df)[1:2] <- c("CampaignID", "Date")
-  names(df)[3:ncol(df)] <- attributes(jobID)$metrics
-  df$Date <- as.Date(df$Date)
-  #convert factor into numeric
-  df[,3:ncol(df)] = sapply(df[,3:ncol(df)], as.character)
-  df[,3:ncol(df)] = sapply(df[,3:ncol(df)], as.numeric)
-  #rearrange dataframe
-  df <- plyr::arrange(df, CampaignID, Date)
-  df
+  doc <- XML::xmlTreeParse(data)
+  doc1 <- XML::xmlRoot(doc)
+  xmlData <- doc1[["table"]][["rows"]]
+  #helper list
+  dataList <- list()
+  #extract single note "row"
+  for(i in 1:length(xmlData)){
+    #convert xml to list and dataframe
+    dataList[[i]] <- as.data.frame(t(unlist(xmlData[[i]])))
+  }
+  #bind single data frames to one data frame
+  data <- do.call(rbind, dataList)
+  #adjust column names
+  names(data) <- sub("attributes.","",names(data))
+  names(data)[names(data)=="dateTime"] <- "date"
+  #remove columns
+  data$name <- NULL
+  data$dateTimePosix <- NULL
+  #convert data types
+  data[,1:ncol(data)] = sapply(data[,1:ncol(data)], as.character)
+  data$date <- as.Date(data$date)
+  data[,3:ncol(data)] = sapply(data[,3:ncol(data)], as.numeric)
+  #arrange data
+  #no visible binding for global variable
+  campaignID <- NULL
+  data <- plyr::arrange(data, campaignID, date)
+  data
+  # #get http content from download url
+  # data <- httr::content(httr::GET(URL),encoding="utf-8")
+  # #parse xml
+  # xmlTop <- XML::xmlRoot(data)
+  # xmlData <- xmlTop[["table"]][["rows"]]
+  # #convert xml to list and dataframe
+  # myList <- XML::xmlToList(xmlData)
+  # df <- data.frame(matrix(unlist(myList), nrow=length(myList), byrow=T))
+  # #eliminate timestamp
+  # df[,2] <- NULL
+  # #rename columns
+  # CampaignID <- NULL
+  # Date <- NULL
+  # names(df)[1:2] <- c("CampaignID", "Date")
+  # names(df)[3:ncol(df)] <- attributes(jobID)$metrics
+  # df$Date <- as.Date(df$Date)
+  # #convert factor into numeric
+  # df[,3:ncol(df)] = sapply(df[,3:ncol(df)], as.character)
+  # df[,3:ncol(df)] = sapply(df[,3:ncol(df)], as.numeric)
+  # #rearrange dataframe
+  # df <- plyr::arrange(df, CampaignID, Date)
+  # df
 }
