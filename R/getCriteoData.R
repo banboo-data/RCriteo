@@ -15,6 +15,9 @@ getCriteoData <- function(URL, jobID){
   doc <- XML::xmlTreeParse(data)
   doc1 <- XML::xmlRoot(doc)
   xmlData <- doc1[["table"]][["rows"]]
+  if(length(xmlData)==0){
+    print("There is no data for the requested campaigns in the specified date range.")
+  } else {
   #helper list
   dataList <- list()
   #extract single note "row"
@@ -39,6 +42,7 @@ getCriteoData <- function(URL, jobID){
   campaignID <- NULL
   data <- plyr::arrange(data, campaignID, date)
   data
+  }
   # #get http content from download url
   # data <- httr::content(httr::GET(URL),encoding="utf-8")
   # #parse xml

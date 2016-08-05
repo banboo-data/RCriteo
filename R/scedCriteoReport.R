@@ -13,6 +13,11 @@
 #' @export
 #' @return Report job ID
 scedCriteoReport <- function(authToken, appToken, campaigns, metrics, start, end){
+  duration <- as.numeric(difftime(as.Date(end),as.Date(start),units=c("days")))
+  if(duration>90){
+    print("Time window is limited to 90 days for daily aggregation. Please reduce the time window end run scedCriteoReport again!")
+  } else {
+  
   camp = paste('<int>',campaigns,'</int>\n',collapse="",sep="")
   metr = paste('<ReportColumn>',metrics,'</ReportColumn>\n',collapse = "",sep="")
   body = paste('<?xml version="1.0" encoding="utf-8"?>
@@ -63,4 +68,5 @@ scedCriteoReport <- function(authToken, appToken, campaigns, metrics, start, end
           data <- data$Body$scheduleReportJobResponse$jobResponse$jobID
           attr(data, "metrics") <- metrics
           data
+      }
 }
