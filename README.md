@@ -1,7 +1,7 @@
 RCriteo <img src="man/figures/RCriteo.png" align="right" />
 ========================================================
 
-[![RCriteo Cran Release](https://www.r-pkg.org/badges/version-last-release/RCriteo)](http://cran.rstudio.com/web/packages/RCriteo/index.html) [![RCriteo Cran Downloads](http://cranlogs.r-pkg.org/badges/RCriteo)](http://cran.rstudio.com/web/packages/RCriteo/index.html)
+[![RCriteo Cran Release](https://www.r-pkg.org/badges/version-last-release/RCriteo)](http://cran.rstudio.com/web/packages/RCriteo/index.html) [![RCriteo Cran Downloads](https://cranlogs.r-pkg.org/badges/grand-total/RCriteo)](http://cran.rstudio.com/web/packages/RCriteo/index.html)
 
 
 ## Loading Criteo Data into R
